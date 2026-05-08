@@ -2108,6 +2108,8 @@ GameObject:
   - component: {fileID: 1019711257}
   - component: {fileID: 1019711256}
   - component: {fileID: 1019711255}
+  - component: {fileID: 1019711260}
+  - component: {fileID: 1019711261}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2164,7 +2166,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!212 &1019711258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2232,6 +2234,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1019711260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019711254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbed8de791cefda4d8349c6118343acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  player: {fileID: 2100644668}
+  chaseRange: 3
+--- !u!58 &1019711261
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019711254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.53839326, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.1980097
 --- !u!1 &1108128089
 GameObject:
   m_ObjectHideFlags: 0
@@ -9393,7 +9426,7 @@ Tilemap:
       - {fileID: -2664502254669432612, guid: 19b6464b474a84161a73091940dcf706, type: 3}
       - {fileID: 2339070538383146887, guid: 19b6464b474a84161a73091940dcf706, type: 3}
       - {fileID: 1794980880798166544, guid: 19b6464b474a84161a73091940dcf706, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 7, y: -7, z: 0}
@@ -12305,6 +12338,8 @@ GameObject:
   - component: {fileID: 1712060599}
   - component: {fileID: 1712060598}
   - component: {fileID: 1712060597}
+  - component: {fileID: 1712060602}
+  - component: {fileID: 1712060601}
   m_Layer: 5
   m_Name: Player UI
   m_TagString: Untagged
@@ -12394,6 +12429,43 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!70 &1712060601
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712060596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
+--- !u!50 &1712060602
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712060596}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1766065754
 GameObject:
   m_ObjectHideFlags: 0
@@ -12997,7 +13069,8 @@ MonoBehaviour:
   speed: 5
   rb: {fileID: 2100644665}
   anim: {fileID: 2100644670}
-  facingDirection: 1
+  interactTip: {fileID: 0}
+  dialogueSystem: {fileID: 0}
 --- !u!95 &2100644670
 Animator:
   serializedVersion: 4
