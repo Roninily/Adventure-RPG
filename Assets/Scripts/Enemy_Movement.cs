@@ -2,35 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-
 public class Enemy_Movement : MonoBehaviour
 {
-    [Header("ÒÆ¶¯ÉèÖÃ")]
-    public float speed = 4f; // µÐÈËÒÆ¶¯ËÙ¶È
+    [Header("ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public float speed = 4f; // ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
     private Rigidbody2D rb;
     public Transform player;
 
-    [Header("×·Öð·¶Î§")]
-    public float chaseRange = 3f; // ´¥·¢Æ÷µÄ°ë¾¶£¬ºÍÄã³¡¾°ÀïµÄÔ²ÐÎCollider´óÐ¡±£³ÖÒ»ÖÂ
-    private bool isPlayerInRange = false; // Íæ¼ÒÊÇ·ñÔÚ×·Öð·¶Î§ÄÚ
+    [Header("×·ï¿½ï¿½Î§")]
+    public float chaseRange = 3f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ë¾¶ï¿½ï¿½ï¿½ï¿½ï¿½ã³¡ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Colliderï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
+    private bool isPlayerInRange = false; // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½×·ï¿½ï¿½Î§ï¿½ï¿½
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0; // È·±£µÐÈË²»»á±»ÖØÁ¦Ó°Ïì
+        rb.gravityScale = 0; // È·ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½
     }
 
-    // ´¥·¢Æ÷½øÈë£ºÍæ¼Ò½øÈë·¶Î§£¬¿ªÊ¼×·Öð
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£ºï¿½ï¿½Ò½ï¿½ï¿½ë·¶Î§ï¿½ï¿½ï¿½ï¿½Ê¼×·ï¿½ï¿½
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Ö»¶Ô´øPlayer±êÇ©µÄÎïÌåÉúÐ§
+        if (other.CompareTag("Player")) // Ö»ï¿½Ô´ï¿½Playerï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
         {
             isPlayerInRange = true;
         }
     }
 
-    // ´¥·¢Æ÷Í£Áô£ºÍæ¼ÒÔÚ·¶Î§ÄÚ£¬±£³Ö×·Öð×´Ì¬
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½Î§ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½×´Ì¬
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -39,31 +37,31 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
-    // ´¥·¢Æ÷ÍË³ö£ºÍæ¼ÒÀë¿ª·¶Î§£¬Í£Ö¹×·Öð
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½Î§ï¿½ï¿½Í£Ö¹×·ï¿½ï¿½
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            rb.velocity = Vector2.zero; // Ö±½Ó°ÑËÙ¶ÈÇåÁã£¬·ÀÖ¹»¬³öÈ¥»¹ÔÚ×·
+            rb.velocity = Vector2.zero; // Ö±ï¿½Ó°ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½×·
         }
     }
 
-    // ÎïÀíÒÆ¶¯Âß¼­·ÅÔÚFixedUpdateÀï£¬±£Ö¤ÎÈ¶¨
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½FixedUpdateï¿½ï£¬ï¿½ï¿½Ö¤ï¿½È¶ï¿½
     void FixedUpdate()
     {
-        // Íæ¼Ò²»ÔÚ·¶Î§ÄÚ£¬Ö±½Ó²»Ö´ÐÐÒÆ¶¯Âß¼­
+        // ï¿½ï¿½Ò²ï¿½ï¿½Ú·ï¿½Î§ï¿½Ú£ï¿½Ö±ï¿½Ó²ï¿½Ö´ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ß¼ï¿½
         if (!isPlayerInRange || player == null)
         {
             rb.velocity = Vector2.zero;
             return;
         }
 
-        // Íæ¼ÒÔÚ·¶Î§ÄÚ£¬¼ÆËã·½Ïò²¢ÒÆ¶¯
+        // ï¿½ï¿½ï¿½ï¿½Ú·ï¿½Î§ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ã·½ï¿½ï¿½ï¿½Æ¶ï¿½
         Vector2 direction = (player.position - transform.position).normalized;
         rb.velocity = direction * speed;
 
-        // ¿ÉÑ¡£ºÈÃµÐÈËÃæÏòÍæ¼Ò£¨×óÓÒ·­×ª£©
+        // ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½Ò·ï¿½×ªï¿½ï¿½
         if (direction.x > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (direction.x < 0)
