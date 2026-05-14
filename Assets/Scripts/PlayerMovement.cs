@@ -9,9 +9,19 @@ public class PlayerMovement : MonoBehaviour
     public int facingDirection = 1;
 
     private Vector2 movement;
+    private bool isAttacking = false;
 
     void Update()
     {
+        if (isAttacking)
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                isAttacking = false;
+            }
+            return;
+        }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -25,6 +35,16 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetFloat("horizontal", Mathf.Abs(movement.x));
             anim.SetFloat("vertical", Mathf.Abs(movement.y));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            if (anim != null)
+            {
+                anim.SetTrigger("Attack");
+                isAttacking = true;
+                movement = Vector2.zero;
+            }
         }
     }
 
