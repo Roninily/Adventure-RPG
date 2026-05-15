@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("vertical", Mathf.Abs(movement.y));
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (anim != null)
             {
